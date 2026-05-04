@@ -138,21 +138,121 @@
         }
 
         /* Card Sản Phẩm */
-        .section-title { font-weight: 800; text-align: center; margin-bottom: 50px; color: var(--dark-text); font-size: 2.5rem; }
+       /* --- GIAO DIỆN SẢN PHẨM LIST NGANG + HIỆU ỨNG FLOATING VIP --- */
+        .section-title { font-weight: 800; text-align: center; margin-bottom: 40px; color: var(--dark-text); font-size: 2.2rem; }
+        
         .product-card { 
-            border: none; 
-            border-radius: 25px; 
-            overflow: hidden; 
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            /* Giữ border trong suốt để khi hover không bị giật layout */
+            border: 1px solid transparent; 
+            border-bottom: 1px solid #f0f0f0;
+            border-radius: 16px; /* Bo góc nhẹ sẵn cho mượt */
+            padding: 15px 10px;
+            background: transparent; 
+            /* Hiệu ứng nhấc bổng hơi nảy nhẹ (bouncy) */
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-            background: white; 
-            box-shadow: 0 10px 20px rgba(0,0,0,0.03); 
-            height: 100%;
             cursor: pointer;
+            position: relative;
         }
-        .product-card:hover { transform: translateY(-15px); box-shadow: 0 20px 40px rgba(212, 163, 115, 0.15); }
-        .product-img { height: 220px; object-fit: cover; width: 100%; border-bottom: 3px solid var(--bg-light); transition: 0.5s; }
-        .product-card:hover .product-img { transform: scale(1.05); }
-        .price-tag { color: var(--primary); font-weight: 800; font-size: 1.2rem; }
+
+        /* PHÉP THUẬT NẰM Ở ĐÂY: Khi khách rê chuột vào (Hover) */
+        .product-card:hover { 
+            background: white; 
+            border-color: var(--primary); /* Lên viền sáng màu Caramel */
+            box-shadow: 0 15px 30px rgba(212, 163, 115, 0.15); /* Bóng đổ xịn sò */
+            transform: translateY(-8px); /* Nhấc bổng thẻ lên */
+            z-index: 2; /* Nổi lên trên các thẻ khác */
+        }
+        
+        .img-wrapper { 
+            width: 95px; 
+            height: 95px;
+            flex-shrink: 0;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-right: 15px;
+            border: 1px solid #f0f0f0;
+        }
+
+        .product-img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            transition: transform 0.5s ease; /* Chuẩn bị cho hiệu ứng zoom ảnh */
+        }
+
+        /* Ảnh tự động zoom nhẹ mượt mà khi hover */
+        .product-card:hover .product-img { 
+            transform: scale(1.12); 
+        }
+        
+        .card-body { 
+            padding: 0; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between;
+            flex-grow: 1;
+            height: 95px; 
+        }
+        
+        .product-title { 
+            font-size: 1.1rem; 
+            font-weight: 700; 
+            color: var(--dark-text); /* Đổi sang màu nâu cafe cho đồng bộ */
+            margin-bottom: 4px; 
+            line-height: 1.3;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            transition: color 0.3s;
+        }
+
+        /* Tên món đổi sang màu nhấn khi hover */
+        .product-card:hover .product-title {
+            color: var(--primary);
+        }
+        
+        .product-desc { font-size: 0.85rem; color: #888; margin-bottom: 5px; }
+        
+        .product-price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: auto;
+        }
+        
+        .price-text { font-size: 1.1rem; font-weight: 800; color: #111; }
+        
+        /* Nút CỘNG (+) */
+        .btn-add-circle { 
+            background: #ffb703; /* Màu vàng cam */
+            color: #fff; 
+            border: none; 
+            border-radius: 50%; 
+            width: 30px; 
+            height: 30px; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800; 
+            font-size: 0.9rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            box-shadow: 0 4px 10px rgba(255, 183, 3, 0.4);
+        }
+
+        /* Nút cộng đổi màu, to ra và xoay 90 độ mời gọi khách bấm */
+        .product-card:hover .btn-add-circle { 
+            background: var(--primary); 
+            transform: scale(1.15) rotate(90deg); 
+            box-shadow: 0 5px 15px rgba(212, 163, 115, 0.5);
+        }
+        
+        /* Trạng thái Hết Hàng */
+        .out-of-stock { opacity: 0.55; filter: grayscale(1); pointer-events: none; }
+        .out-label { position: absolute; top: 10px; left: 10px; background: #e63946; color: white; padding: 3px 10px; font-weight: 700; font-size: 0.75rem; border-radius: 8px; z-index: 10; box-shadow: 0 2px 10px rgba(230,57,70,0.4); }
         
         /* Trạng thái Hết Hàng */
         .out-of-stock { opacity: 0.7; filter: grayscale(0.5); pointer-events: none; }
