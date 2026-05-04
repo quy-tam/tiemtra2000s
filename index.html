@@ -5,83 +5,241 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MilkTea 2000s | Vị ngon trên đầu ngón tay</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        :root { --primary-color: #7fb069; --dark-text: #2d3436; }
-        body { font-family: 'Be Vietnam Pro', sans-serif; color: var(--dark-text); scroll-behavior: smooth; background: #fdfaf7; }
+        .custom-footer {
+            background-color: #4A3B32; 
+            color: #e2e8f0; 
+            padding: 30px 0 20px; 
+            font-family: 'Be Vietnam Pro', sans-serif;
+            margin-top: 20px; 
+        }
         
-        /* GIAO DIỆN CHUNG */
-        .hero { background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://statics.vinwonders.com/Vietnamese-Milk-Tea-2_1701613025.jpg'); background-size: cover; background-position: center; height: 75vh; display: flex; align-items: center; color: white; }
-        .about-section { background-color: #fff9f0; padding: 80px 0; }
-        .section-title { position: relative; margin-bottom: 40px; font-weight: 700; text-align: center;}
-        .section-title::after { content: ''; width: 60px; height: 4px; background: var(--primary-color); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); }
-        .btn-primary { background-color: var(--primary-color); border: none; padding: 10px 25px; border-radius: 50px; }
+        .custom-footer .brand-name {
+            font-size: 2rem; 
+            font-weight: 900;
+            margin-bottom: 5px; 
+            letter-spacing: 2px;
+        }
+        
+        .custom-footer h5 {
+            color: #ffffff;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-size: 1.05rem;
+            letter-spacing: 0.5px;
+        }
+        
+        .custom-footer ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .custom-footer ul li {
+            margin-bottom: 9px; 
+            display: flex;
+            align-items: flex-start;
+            line-height: 1.5;
+            font-size: 1rem; 
+        }
+        
+        .custom-footer ul li i {
+            color: #e63946; 
+            margin-right: 12px;
+            margin-top: 4px;
+            font-size: 1.1rem;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .custom-footer .time-bold {
+            color: #ffffff;
+            font-weight: 700;
+        }
+        /* --- BỘ MÀU & TYPOGRAPHY GIAO DIỆN CARAMEL --- */
+        :root { 
+            --primary: #D4A373; 
+            --primary-hover: #b58555;
+            --secondary: #CCD5AE; 
+            --dark-text: #4A3B32; 
+            --bg-light: #FAEDCD;
+            --white-glass: rgba(255, 255, 255, 0.9);
+        }
+        
+        body { 
+            font-family: 'Outfit', sans-serif; 
+            color: var(--dark-text); 
+            background: #FEFAE0; 
+            scroll-behavior: smooth; 
+        }
+        
+        /* Navbar Hiện Đại (Floating) */
+        .custom-navbar {
+            background: var(--white-glass);
+            backdrop-filter: blur(10px);
+            margin: 15px auto;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            max-width: 95%;
+            padding: 10px 25px;
+        }
 
-        /* MÓN NƯỚC & TÌNH TRẠNG KHO */
-        .product-card { border: none !important; border-radius: 20px; overflow: hidden; transition: all 0.3s ease; box-shadow: 0 2px 10px rgba(0,0,0,0.03) !important; cursor: pointer; height: 100%; background: white; position: relative; }
-        .product-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important; }
-        .product-img { height: 180px; object-fit: cover; width: 100%; }
-        .price-tag { color: var(--primary-color); font-weight: bold; font-size: 1.1rem; }
-        .out-of-stock { opacity: 0.6; filter: grayscale(0.8); pointer-events: none; }
-        .out-label { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-15deg); background: rgba(255,0,0,0.8); color: white; padding: 5px 15px; font-weight: bold; border-radius: 5px; z-index: 10; font-size: 0.8rem; text-transform: uppercase; }
+        .navbar-brand { font-weight: 800; font-size: 1.5rem; color: var(--dark-text) !important; }
+        .navbar-brand span { color: var(--primary); }
+        .nav-link { font-weight: 600; color: var(--dark-text) !important; transition: 0.3s; margin: 0 5px; }
+        .nav-link:hover { color: var(--primary) !important; transform: translateY(-2px); }
+        
+        /* Hero Section Mới */
+        .hero { 
+            background: linear-gradient(to right, rgba(74, 59, 50, 0.8), rgba(212, 163, 115, 0.6)), url('https://statics.vinwonders.com/Vietnamese-Milk-Tea-2_1701613025.jpg'); 
+            background-size: cover; 
+            background-position: center; 
+            background-attachment: fixed;
+            height: 70vh; 
+            display: flex; 
+            align-items: center; 
+            color: white; 
+            border-radius: 0 0 40px 40px;
+            margin-bottom: 50px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .hero h1 { font-weight: 800; letter-spacing: -1px; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); }
+        .btn-custom { background-color: var(--primary); color: white; border: none; padding: 12px 35px; border-radius: 50px; font-weight: 600; transition: 0.3s; box-shadow: 0 10px 20px rgba(212, 163, 115, 0.4); }
+        .btn-custom:hover { background-color: var(--primary-hover); transform: scale(1.05); color: white; }
 
-        /* THANH TÌM KIẾM */
+        /* --- THANH LỌC DANH MỤC --- */
+        .category-filter { margin-bottom: 40px; }
+        .cat-btn {
+            padding: 8px 24px;
+            border-radius: 50px;
+            border: 2px solid var(--bg-light);
+            background: white;
+            color: var(--dark-text);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+        .cat-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+        .cat-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+            box-shadow: 0 6px 15px rgba(212, 163, 115, 0.3);
+        }
+
+        /* Card Sản Phẩm */
+        .section-title { font-weight: 800; text-align: center; margin-bottom: 50px; color: var(--dark-text); font-size: 2.5rem; }
+        .product-card { 
+            border: none; 
+            border-radius: 25px; 
+            overflow: hidden; 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            background: white; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.03); 
+            height: 100%;
+            cursor: pointer;
+        }
+        .product-card:hover { transform: translateY(-15px); box-shadow: 0 20px 40px rgba(212, 163, 115, 0.15); }
+        .product-img { height: 220px; object-fit: cover; width: 100%; border-bottom: 3px solid var(--bg-light); transition: 0.5s; }
+        .product-card:hover .product-img { transform: scale(1.05); }
+        .price-tag { color: var(--primary); font-weight: 800; font-size: 1.2rem; }
+        
+        /* Trạng thái Hết Hàng */
+        .out-of-stock { opacity: 0.7; filter: grayscale(0.5); pointer-events: none; }
+        .out-label { position: absolute; top: 15px; right: -35px; background: #e63946; color: white; padding: 5px 40px; font-weight: 800; font-size: 0.8rem; transform: rotate(45deg); z-index: 10; letter-spacing: 1px; box-shadow: 0 2px 10px rgba(230,57,70,0.4); }
+
+        /* Về Chúng Tôi */
+        .about-section { background-color: white; padding: 100px 0; border-radius: 40px; margin: 50px 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
+        .about-img { border-radius: 30px; border: 10px solid var(--bg-light); transform: rotate(-3deg); transition: 0.5s; }
+        .about-img:hover { transform: rotate(0deg); }
+
+        /* Search Input Mới */
         .search-wrapper { position: relative; display: flex; align-items: center; }
-        .search-input { width: 40px; height: 36px; border: none !important; background: #f1f1f1; border-radius: 20px; padding: 0 10px 0 35px; transition: all 0.4s ease; outline: none; }
-        .search-input:focus { width: 160px; background: #e8f5e9 !important; }
-        .search-icon { position: absolute; left: 12px; color: #888; pointer-events: none; }
+        .search-input { width: 45px; height: 45px; border: 2px solid transparent; border-radius: 50px; padding: 0 15px 0 45px; transition: all 0.4s ease; outline: none; background: var(--bg-light); font-weight: 500; }
+        .search-input:focus { width: 220px; border-color: var(--primary); background: white; box-shadow: 0 5px 15px rgba(212, 163, 115, 0.2); }
+        .search-icon { position: absolute; left: 15px; color: var(--dark-text); pointer-events: none; }
 
-        /* GIỎ HÀNG SIDEBAR */
-        #cart-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: none; z-index: 2040; }
+        /* Sidebar Giỏ Hàng */
+        #cart-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(74, 59, 50, 0.4); backdrop-filter: blur(5px); display: none; z-index: 2040; }
         #cart-overlay.active { display: block; }
-        #cart-sidebar { position: fixed; right: -400px; top: 0; width: 380px; height: 100%; background: white; z-index: 2050; transition: 0.4s cubic-bezier(0.25, 1, 0.5, 1); display: flex; flex-direction: column; box-shadow: -10px 0 30px rgba(0,0,0,0.05); }
+        #cart-sidebar { position: fixed; right: -450px; top: 0; width: 400px; height: 100%; background: #FEFAE0; z-index: 2050; transition: 0.5s cubic-bezier(0.25, 1, 0.5, 1); display: flex; flex-direction: column; box-shadow: -15px 0 40px rgba(0,0,0,0.1); border-radius: 30px 0 0 30px; }
         #cart-sidebar.active { right: 0; }
-        .cart-header { padding: 20px 25px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; }
-        .cart-header h4 { font-weight: 700; margin: 0; font-size: 1.5rem; color: #333; }
-        #cartItems { flex-grow: 1; overflow-y: auto; padding: 15px 25px; }
-        .cart-footer { padding: 20px 25px; border-top: 1px solid #eee; background: white; }
-        .btn-checkout { background-color: #82b172; color: white; border: none; width: 100%; padding: 12px; border-radius: 50px; font-weight: 700; font-size: 1rem; text-transform: uppercase; transition: 0.3s; }
-        .btn-checkout:hover { background-color: #6a965a; transform: translateY(-2px); }
+        .cart-header { padding: 30px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px dashed rgba(212, 163, 115, 0.3); }
+        .cart-header h4 { font-weight: 800; margin: 0; color: var(--dark-text); }
+        #cartItems { flex-grow: 1; overflow-y: auto; padding: 20px; }
+        .cart-footer { padding: 20px; background: transparent; border-top: 1px solid #e0e0e0; }
+        
+        /* Input Tối giản - Chỉ có viền dưới */
+        .customer-input { 
+            border: none !important; 
+            border-bottom: 1px solid #e0e0e0 !important; 
+            border-radius: 0 !important; 
+            padding: 10px 5px !important;  
+            font-size: 0.95rem; 
+            margin-bottom: 0px; 
+            width: 100%; 
+            background: transparent !important; 
+            transition: 0.3s;
+            color: var(--dark-text);
+        }
+        .customer-input:focus { 
+            border-bottom: 1px solid var(--primary) !important; 
+            outline: none; 
+            box-shadow: none !important;
+        }
+        .customer-input::placeholder { color: #aaa; font-weight: 300;}
+        
+        .btn-checkout { background-color: var(--primary); color: white; border: none; width: 100%; padding: 15px; border-radius: 20px; font-weight: 800; font-size: 1.1rem; text-transform: uppercase; transition: 0.3s; letter-spacing: 1px; box-shadow: 0 10px 20px rgba(212, 163, 115, 0.3); }
+        .btn-checkout:hover { background-color: var(--primary-hover); transform: translateY(-3px); }
 
-        /* Ô NHẬP LIỆU KHÔNG VIỀN */
-        .customer-input { border: none !important; border-bottom: 1px solid #ddd !important; border-radius: 0 !important; padding: 10px 5px !important; font-size: 0.9rem; margin-bottom: 10px; width: 100%; background: transparent !important; }
-        .customer-input:focus { border-bottom: 1px solid var(--primary-color) !important; outline: none; }
-
-        /* KHUNG MÃ ĐƠN TRÊN BILL */
-        .order-code-box { background: #f8f9fa; border: none !important; padding: 15px; border-radius: 12px; margin: 10px 0; }
-        .order-code-title { font-size: 0.7rem; color: #888; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 2px; }
-        .order-code-number { font-size: 1.8rem; font-weight: 800; color: var(--primary-color); letter-spacing: 4px; }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
     </style>
 </head>
 <body>
 
     <div id="cart-overlay" onclick="toggleCart()"></div>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
-        <div class="container">
-            <a class="navbar-brand fw-bold text-success" href="#">MilkTea<span class="text-warning">2000s</span></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+    <!-- Nabar Floating -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top custom-navbar">
+        <div class="container-fluid px-3">
+            <a class="navbar-brand" href="#">MilkTea<span>2000s</span></a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto text-uppercase small fw-bold align-items-center">
+                <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item me-lg-3 my-2 my-lg-0">
                         <div class="search-wrapper">
-                            <input type="text" id="searchInput" class="search-input" placeholder="Tìm món..." onkeyup="searchDrink()">
+                            <input type="text" id="searchInput" class="search-input" placeholder="Tìm thức uống..." onkeyup="searchDrink()">
                             <i class="fas fa-search search-icon"></i>
                         </div>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="#">Trang chủ</a></li>
                     <li class="nav-item">
-                        <a class="nav-link text-primary" href="javascript:void(0)" onclick="openHistoryModal()">
-                            <i class="fas fa-ticket-alt"></i> Tra mã đơn
+                        <a class="nav-link" href="javascript:void(0)" onclick="openHistoryModal()">
+                            <i class="fas fa-ticket-alt me-1"></i> Tra mã đơn
                         </a>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="#about">Câu chuyện</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
-                    <li class="nav-item"><a class="nav-link text-success" href="javascript:void(0)" onclick="toggleCart()"><i class="fas fa-shopping-basket"></i> Giỏ hàng (<span id="cart-count">0</span>)</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#menu">Thực đơn</a></li>
+                    <li class="nav-item ms-lg-2">
+                        <a class="btn btn-custom py-2 px-4 text-white" href="javascript:void(0)" onclick="toggleCart()">
+                            <i class="fas fa-shopping-bag me-2"></i> Giỏ hàng (<span id="cart-count">0</span>)
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -89,96 +247,154 @@
 
     <section class="hero text-center">
         <div class="container">
-            <h1 class="display-3 fw-bold mb-3">Trà Sữa Đậm Vị - <br>Tươi Mới Mỗi Ngày</h1>
-            <a href="#menu" class="btn btn-primary btn-lg">Xem Menu Ngay</a>
+            <h1 class="display-3 mb-4">Trà Sữa Đậm Vị - Tươi Mới Mỗi Ngày</h1>
+            <a href="#menu" class="btn btn-custom btn-lg">Khám Phá Menu</a>
         </div>
     </section>
 
     <section id="menu" class="container py-5">
-        <h2 class="section-title">Món Ngon MilkTea 2000s</h2>
+        <h2 class="section-title">✨ Thực Đơn Nổi Bật ✨</h2>
+        
+        <!-- Thanh lọc danh mục -->
+        <div class="category-filter d-flex justify-content-center flex-wrap gap-3">
+            <button class="cat-btn active" onclick="filterCategory('all', this)">Tất Cả</button>
+            <button class="cat-btn" onclick="filterCategory('Trà Sữa', this)">🧋 Trà Sữa</button>
+            <button class="cat-btn" onclick="filterCategory('Trà', this)">🍵 Trà</button>
+            <button class="cat-btn" onclick="filterCategory('Topping', this)">🍮 Topping</button>
+            <button class="cat-btn" onclick="filterCategory('Ăn Vặt', this)">🍟 Ăn Vặt</button>
+        </div>
+
         <div class="row g-4" id="menuGrid"></div>
     </section>
 
-    <section id="about" class="about-section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6 mb-4 mb-md-0">
-                    <img src="https://statics.vinwonders.com/Vietnamese-Milk-Tea-2_1701613025.jpg" class="img-fluid rounded-4 shadow" alt="Our Story">
-                </div>
-                <div class="col-md-6 ps-md-5">
-                    <h2 class="fw-bold mb-4">Câu Chuyện Của Chúng Tôi</h2>
-                    <p>Bắt đầu từ một xe trà nhỏ ven đường vào những năm 2000, chúng tôi khát khao mang đến những ly trà "thật" nhất, được làm từ những lá trà chọn lọc thủ công kết hợp cùng quy trình pha chế hiện đại của năm 2026.</p>
-                    <p>Tại MilkTea 2000s, mỗi ly trà không chỉ là thức uống, mà là cả một bầu trời kỷ niệm được gửi gắm trong từng hạt trân châu dai giòn và vị trà sữa đậm đà khó quên.</p>
-                </div>
+    <section id="about" class="container about-section">
+        <div class="row align-items-center px-4">
+            <div class="col-md-5 mb-5 mb-md-0 position-relative">
+                <img src="https://statics.vinwonders.com/Vietnamese-Milk-Tea-2_1701613025.jpg" class="img-fluid about-img" alt="Our Story">
+            </div>
+            <div class="col-md-7 ps-md-5">
+                <h2 class="fw-bold mb-4" style="color: var(--primary); font-size: 2.5rem;">Câu Chuyện Của Chúng Tôi</h2>
+                <p class="fs-5">MilkTea 2000s không bắt đầu bằng một kế hoạch lớn, mà chỉ từ một quầy trà nhỏ dựng tạm bên đường — nơi mỗi ngày đều bắt đầu bằng việc đun nước, ủ trà và chờ những vị khách đầu tiên ghé qua.</p>
+                <p class="fs-5 text-muted">Những ngày đầu không có nhiều lựa chọn, cũng không có công thức hoàn hảo. Mọi thứ được thử rồi sửa, làm lại rồi rút kinh nghiệm — chỉ để mỗi ly trà sau đó ngon hơn ly trước một chút.</p>
+                <p class="fs-5 text-muted">Khách đến rồi quay lại, rồi lại giới thiệu thêm bạn bè. Cứ như vậy, từ một góc nhỏ quen thuộc, MilkTea 2000s dần lớn lên theo cách rất tự nhiên — không ồn ào, nhưng đủ để được nhớ đến.</p>
+                <p class="fs-5 text-muted">Đến hôm nay, mọi thứ có thể đã khác đi nhiều. Nhưng cách chúng tôi làm trà thì vẫn vậy: bắt đầu từ những điều đơn giản, làm thật kỹ, và giữ nguyên cái chất đã tạo nên MilkTea 2000s từ những ngày đầu.</p>
             </div>
         </div>
     </section>
 
+    <!-- Sidebar Giỏ Hàng -->
     <div id="cart-sidebar">
-        <div class="cart-header"><h4>Giỏ hàng</h4><button class="btn-close" onclick="toggleCart()"></button></div>
+        <div class="cart-header">
+            <h4><i class="fas fa-shopping-bag me-2" style="color: var(--primary);"></i>Giỏ hàng</h4>
+            <button class="btn-close shadow-none" onclick="toggleCart()"></button>
+        </div>
+        
+        <!-- Khung chứa danh sách món -->
         <div id="cartItems"></div>
+        
         <div class="cart-footer">
-            <div class="mb-3">
+            <div class="mb-4">
                 <input type="text" id="cusName" class="customer-input" placeholder="Tên hoặc Số bàn (*)">
                 <input type="tel" id="cusPhone" class="customer-input" placeholder="Số điện thoại (*)">
                 <input type="text" id="cusNote" class="customer-input mb-0" placeholder="Ghi chú (VD: ít đá, 50% đường...)">
             </div>
-            <div class="d-flex justify-content-between align-items-center mb-3 fs-5 fw-bold">
-                <span>Tổng cộng:</span><span class="text-success"><span id="cartTotal">0</span> đ</span>
+            <div class="d-flex justify-content-between align-items-center mb-4 fs-5 fw-bold">
+                <span class="text-muted">Tổng cộng:</span>
+                <span style="color: var(--primary); font-size: 1.5rem;"><span id="cartTotal">0</span> đ</span>
             </div>
-            <button class="btn-checkout" onclick="checkout()">ĐẶT HÀNG NGAY</button>
+            <button class="btn-checkout" onclick="checkout()">Xác Nhận Đặt Hàng</button>
         </div>
     </div>
 
+    <!-- Modal Lịch Sử Đơn Hàng -->
     <div class="modal fade" id="historyModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content border-0 shadow-lg rounded-4">
-                <div class="modal-header border-0 pb-0"><button class="btn-close" data-bs-dismiss="modal"></button></div>
-                <div class="modal-body p-4 text-center">
-                    <h4 class="fw-bold mb-4 text-success">Tra cứu đơn hàng</h4>
-                    <p class="small text-muted mb-3">Nhập mã đơn hàng </p>
-                    <div class="input-group mb-3">
-                        <input type="text" id="searchOrderCode" class="form-control text-center fw-bold bg-light border-0" placeholder="Ví dụ: A1234" style="text-transform: uppercase;">
-                        <button class="btn btn-success" onclick="findMyOrder()">Tra cứu</button>
+            <div class="modal-content border-0 shadow-lg rounded-4" style="background: var(--bg-light);">
+                <div class="modal-header border-0 pb-0">
+                    <button class="btn-close shadow-none" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4 p-md-5 text-center">
+                    <h3 class="fw-bold mb-4" style="color: var(--primary);">Tra cứu đơn hàng</h3>
+                    <p class="small text-muted mb-3">Nhập mã đơn hàng của bạn</p>
+                    <div class="input-group mb-4 shadow-sm rounded-pill overflow-hidden">
+                        <!-- ĐÃ FIX: Sửa lỗi gõ sai chữ oninput thành oninput="clearTracking()" -->
+                        <input type="text" id="TrackingcodeInput" class="form-control text-center fw-bold border-0 px-4 py-3" placeholder="Ví dụ: A1234" style="text-transform: uppercase;" oninput="clearTracking()">
+                        <button class="btn text-white px-4 fw-bold" style="background: var(--primary);" onclick="findMyOrder()">Tìm kiếm</button>
                     </div>
-                    <div id="orderResult" class="text-start"></div>
+                    <div id="orderResult" class="text-start" style="max-height: 400px; overflow-y: auto;"></div>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Modal Hóa Đơn Mới (Bill) -->
     <div class="modal fade" id="billModal" tabindex="-1" data-bs-backdrop="static">
-        <div class="modal-dialog modal-dialog-centered modal-sm">
-            <div class="modal-content border-0 shadow-lg" style="background: #fffcf8; font-family: 'Courier New', Courier, monospace;">
+        <div class="modal-dialog modal-dialog-centered" style="max-width: 400px;">
+            <div class="modal-content border-0 shadow-lg" style="background: #FFFDF9; border-radius: 20px;">
                 <div class="modal-body p-4 text-center">
-                    <h5 class="fw-bold mb-0">MilkTea 2000s</h5>
-                    <p class="small text-muted mb-2 border-bottom pb-2" style="border-style: dashed !important;">BILL ĐẶT MÓN</p>
+                    <h3 class="fw-bold mb-4" style="color: var(--dark-text);">MILKTEA 2000S</h3>
                     
-                    <div class="order-code-box">
-                        <div class="order-code-title">Mã đơn hàng</div>
-                        <div class="order-code-number" id="bCode">----</div>
+                    <div style="border: 2px dashed var(--primary); border-radius: 12px; padding: 10px; margin-bottom: 25px;">
+                        <span style="color: var(--primary); font-weight: bold; font-size: 1.1rem; letter-spacing: 1px;">HÓA ĐƠN TẠM TÍNH</span>
                     </div>
-
-                    <div class="text-start small mb-3" style="font-family: 'Be Vietnam Pro';">
-                        <div>Khách: <b id="bName"></b></div>
+                    
+                    <div class="text-start mb-3 fw-bold" style="color: var(--dark-text); font-size: 1.05rem; line-height: 2;">
+                        <div>Mã đơn: <span id="bCode" style="color: var(--primary); font-size: 1.1rem;"></span></div>
+                        <div>Khách: <span id="bName"></span></div>
                         <div>SĐT: <span id="billPhoneReal"></span></div>
-                        <div>Giờ: <span id="bTime"></span></div>
+                        <div>Ngày/Giờ: <span id="bTime"></span></div>
                     </div>
-                    <div id="bItems" class="text-start small mb-2 border-bottom pb-2" style="border-style: dashed !important; font-family: 'Be Vietnam Pro';"></div>
-                    <div class="d-flex justify-content-between fw-bold mb-3" style="font-family: 'Be Vietnam Pro'; font-size: 1.1rem;">
-                        <span>TỔNG:</span><span id="bTotal">0 đ</span>
+                    
+                    <hr style="border-top: 2px dashed #ccc; opacity: 1; margin: 15px 0;">
+                    
+                    <div id="bItems" class="text-start mb-3"></div>
+
+                    <div id="bNoteContainer" class="text-start p-3 mb-3 rounded" style="background: var(--bg-light); border-left: 4px solid var(--primary); font-size: 0.95rem; display: none;">
+                        <strong style="color: var(--dark-text);">Ghi chú:</strong> <span id="bNote" style="color: var(--dark-text);"></span>
                     </div>
-                    <p class="small fst-italic text-muted mb-3" style="font-family: 'Be Vietnam Pro'; font-size: 0.75rem;">*Vui lòng chụp màn hình để tra cứu đơn!</p>
-                    <button class="btn btn-dark w-100 fw-bold rounded-pill" onclick="closeBill()">XÁC NHẬN & ĐÓNG</button>
+                    
+                    <div class="d-flex justify-content-between align-items-center fw-bold fs-5 mt-4 mb-4" style="color: var(--dark-text);">
+                        <span>TỔNG:</span><span id="bTotal" style="color: var(--primary); font-size: 1.8rem;">0 đ</span>
+                    </div>
+                    
+                    <p class="fst-italic text-muted mb-4 fw-bold" style="font-size: 0.95rem;">*Cảm ơn quý khách!</p>
+                    
+                    <button type="button" class="btn text-white w-100 fw-bold py-3 rounded-pill" style="background: var(--dark-text); font-size: 1.1rem;" onclick="closeBill()">XÁC NHẬN & ĐÓNG</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <footer class="bg-dark text-white py-4 text-center mt-5">
-        <p class="mb-0">© CN1 MilkTea 2000s. Địa chỉ: 123 Nguyễn Huệ, Quận 1, TP.HCM.    Hotline 012.357.900</p>
+    <!-- CHÂN TRANG (FOOTER) -->
+    <footer class="custom-footer">
+        <div class="container">
+            <div class="text-center mb-5">
+                <div class="brand-name" style="font-size: 2.5rem; font-weight: 900; letter-spacing: 2px;">
+                    <span style="color: #ffffff;">MilkTea</span> <span style="color: #e63946;">2000s</span>
+                </div>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-md-5 mb-4 mb-md-0">                    
+                    <h5>THÔNG TIN LIÊN HỆ</h5>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt" style="color: #e63946;"></i> 123 Nguyễn Huệ, Quận1, TPHCM.</li>
+                        <li><i class="fas fa-phone-alt" style="color: #e63946;"></i> Hotline: 090.123.6789 </li>
+                        <li><i class="fas fa-envelope" style="color: #8c9eff;"></i> Email: contact@milktea2000s.vn</li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-4">
+                    <h5>GIỜ PHỤC VỤ</h5>
+                    <ul>
+                        <li>Thứ 2 - Thứ 6: <span class="time-bold ms-2">08:30AM - 23:00PM</span></li>
+                        <li>Thứ 7 - Chủ Nhật: <span class="time-bold ms-2">01:00AM - 24:00AM</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </footer>
-
+              
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
@@ -192,8 +408,8 @@
 
         let drinks = []; 
         let cart = JSON.parse(localStorage.getItem("pro_cart")) || [];
-        // Đảm bảo dữ liệu giỏ hàng cũ (nếu có) được gắn quantity = 1
         cart = cart.map(item => ({...item, quantity: item.quantity || 1}));
+        let trackedOrdersList = []; 
 
         // 1. TẢI MENU TỪ DATABASE MENU (ADMIN)
         dbA.ref('drinks').on('value', snap => {
@@ -203,20 +419,24 @@
         });
 
         function renderMenu(dataToRender = drinks) {
-            if (dataToRender.length === 0) return document.getElementById('menuGrid').innerHTML = "<p class='text-center w-100 py-5 text-muted'>Không tìm thấy món nước phù hợp...</p>";
+            if (dataToRender.length === 0) return document.getElementById('menuGrid').innerHTML = "<p class='text-center w-100 py-5 text-muted fs-5'>Không tìm thấy món nước phù hợp...</p>";
             document.getElementById('menuGrid').innerHTML = dataToRender.map((d) => {
                 const isOut = d.status === 'out';
                 let idx = drinks.indexOf(d);
                 return `
-                <div class="col-6 col-md-3">
-                    <div class="card product-card ${isOut ? 'out-of-stock' : ''}" onclick="${isOut ? '' : `addToCart(${idx})`}">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="card product-card position-relative ${isOut ? 'out-of-stock' : ''}" onclick="${isOut ? '' : `addToCart(${idx})`}">
                         ${isOut ? '<div class="out-label">Tạm hết</div>' : ''}
-                        <img src="${d.img}" class="product-img">
-                        <div class="card-body text-center p-2 p-md-3">
-                            <h6 class="fw-bold mb-1 small">${d.name}</h6>
-                            <p class="price-tag mb-2 small">${(parseInt(d.price)||0).toLocaleString()}đ</p>
-                            <button class="btn btn-sm ${isOut ? 'btn-secondary' : 'btn-outline-success'} rounded-pill px-3 w-100 fw-bold" 
-                                    ${isOut ? 'disabled' : ''}>${isOut ? 'Hết hàng' : 'Thêm +'}</button>
+                        <div style="overflow: hidden;">
+                            <img src="${d.img}" class="product-img">
+                        </div>
+                        <div class="card-body text-center p-4">
+                            <h5 class="fw-bold mb-2">${d.name}</h5>
+                            <p class="price-tag mb-3">${(parseInt(d.price)||0).toLocaleString()}đ</p>
+                            <button class="btn btn-custom w-100 rounded-pill py-2" style="${isOut ? 'background: #ccc; box-shadow: none;' : ''}" 
+                                    ${isOut ? 'disabled' : ''}>
+                                ${isOut ? 'Hết hàng' : '<i class="fas fa-plus me-1"></i> Chọn Mua'}
+                            </button>
                         </div>
                     </div>
                 </div>`;
@@ -228,13 +448,26 @@
             renderMenu(drinks.filter(d => d.name.toLowerCase().includes(keyword)));
         }
 
+        // 1.5. LOGIC LỌC DANH MỤC (MENU) CHUẨN XÁC 100%
+        function filterCategory(category, btnElement) {
+            document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
+            btnElement.classList.add('active');
+            document.getElementById('searchInput').value = '';
+
+            if (category === 'all') {
+                renderMenu(drinks);
+            } else {
+                const filteredDrinks = drinks.filter(d => d.category === category);
+                renderMenu(filteredDrinks);
+            }
+        }
+
         // 2. LOGIC GIỎ HÀNG THÔNG MINH
         function addToCart(i) {
-            // Kiểm tra xem món này (và cùng size M mặc định) đã có chưa
             let existIdx = cart.findIndex(item => item.name === drinks[i].name && item.selectedSize === 'M');
             
             if (existIdx !== -1) {
-                cart[existIdx].quantity += 1; // Có rồi thì tăng số lượng
+                cart[existIdx].quantity += 1;
             } else {
                 cart.push({...drinks[i], selectedSize: 'M', finalPrice: parseInt(drinks[i].price), quantity: 1});
             }
@@ -250,37 +483,45 @@
 
         function updateQuantity(i, change) {
             cart[i].quantity += change;
-            if (cart[i].quantity <= 0) cart.splice(i, 1); // Xóa nếu số lượng về 0
+            if (cart[i].quantity <= 0) cart.splice(i, 1);
             updateCart();
         }
 
         function updateCart() {
             localStorage.setItem("pro_cart", JSON.stringify(cart));
-            document.getElementById('cart-count').innerText = cart.reduce((sum, item) => sum + item.quantity, 0); // Đếm tổng ly
+            document.getElementById('cart-count').innerText = cart.reduce((sum, item) => sum + item.quantity, 0); 
             
             let tot = 0;
             document.getElementById('cartItems').innerHTML = cart.map((item, i) => {
                 let itemTotal = item.finalPrice * item.quantity;
                 tot += itemTotal;
                 return `
-                <div class="d-flex align-items-center mb-3 border-bottom pb-2">
-                    <img src="${item.img}" width="50" height="50" class="rounded me-2" style="object-fit:cover;">
+                <div class="d-flex align-items-center mb-3 bg-white p-2 rounded-3 shadow-sm border border-light">
+                    <img src="${item.img}" width="65" height="65" class="rounded-3 me-3" style="object-fit:cover;">
                     <div class="flex-grow-1">
-                        <h6 class="mb-0 small fw-bold text-dark">${item.name}</h6>
-                        <div class="d-flex gap-1 my-1">
-                            <button class="btn btn-sm ${item.selectedSize==='M'?'btn-success':'btn-outline-secondary'} py-0 px-2" style="font-size:10px" onclick="changeSize(${i},'M')">Size M</button>
-                            <button class="btn btn-sm ${item.selectedSize==='L'?'btn-success':'btn-outline-secondary'} py-0 px-2" style="font-size:10px" onclick="changeSize(${i},'L')">Size L (+5k)</button>
+                        <div class="fw-bold text-dark mb-1" style="font-size: 0.95rem; line-height: 1.2;">${item.name}</div>
+                        <div class="d-flex gap-1 mb-1">
+                            <button class="btn btn-sm ${item.selectedSize==='M'?'text-white':'btn-outline-secondary'}" style="${item.selectedSize==='M'?'background: var(--primary); border:none;':''} font-size:10px; padding: 2px 8px; border-radius: 6px;" onclick="changeSize(${i},'M')">M</button>
+                            <button class="btn btn-sm ${item.selectedSize==='L'?'text-white':'btn-outline-secondary'}" style="${item.selectedSize==='L'?'background: var(--primary); border:none;':''} font-size:10px; padding: 2px 8px; border-radius: 6px;" onclick="changeSize(${i},'L')">L (+5k)</button>
                         </div>
-                        <small class="text-success fw-bold">${item.finalPrice.toLocaleString()}đ</small>
+                        <div style="color: var(--primary); font-weight: 800; font-size: 0.95rem;">${item.finalPrice.toLocaleString()}đ</div>
                     </div>
-                    <div class="d-flex align-items-center bg-light rounded-pill px-2 me-2 border">
-                        <button class="btn btn-sm text-secondary fw-bold py-0 px-1 border-0" onclick="updateQuantity(${i}, -1)">-</button>
-                        <span class="small fw-bold px-1">${item.quantity}</span>
-                        <button class="btn btn-sm text-success fw-bold py-0 px-1 border-0" onclick="updateQuantity(${i}, 1)">+</button>
+                    <div class="d-flex flex-column align-items-end justify-content-between" style="height: 65px;">
+                        <button class="btn text-danger p-0 shadow-none border-0" onclick="cart.splice(${i},1); updateCart()">
+                            <i class="fas fa-times fs-6"></i>
+                        </button>
+                        <div class="d-flex align-items-center bg-light rounded-pill border" style="padding: 1px 6px;">
+                            <button class="btn btn-sm text-secondary fw-bold p-0 border-0 shadow-none" style="width: 20px; font-size: 0.9rem;" onclick="updateQuantity(${i}, -1)">-</button>
+                            <span class="small fw-bold text-center" style="width: 20px;">${item.quantity}</span>
+                            <button class="btn btn-sm text-success fw-bold p-0 border-0 shadow-none" style="width: 20px; font-size: 0.9rem;" onclick="updateQuantity(${i}, 1)">+</button>
+                        </div>
                     </div>
-                    <button class="btn btn-sm text-danger bg-transparent border-0 px-1" onclick="cart.splice(${i},1); updateCart()"><i class="fas fa-trash"></i></button>
                 </div>`;
-            }).join('') || "<div class='text-center py-5 text-muted'><i class='fas fa-basket-shopping fa-3x mb-3 opacity-50'></i><p>Giỏ hàng đang trống</p></div>";
+            }).join('') || `
+                <div class="text-center py-5 opacity-50">
+                    <i class="fas fa-box-open fs-1 mb-3"></i>
+                    <p class="fw-bold">Giỏ hàng đang trống</p>
+                </div>`;
             document.getElementById('cartTotal').innerText = tot.toLocaleString();
         }
 
@@ -288,60 +529,157 @@
         function checkout() {
             const name = document.getElementById('cusName').value.trim();
             const phone = document.getElementById('cusPhone').value.trim();
-            const note = document.getElementById('cusNote').value.trim() || "Không có";
+            const note = document.getElementById('cusNote').value.trim();
             if(!name || !phone || cart.length === 0) return alert("Vui lòng nhập đủ Tên và Số điện thoại!");
 
-            // Tạo mã đơn ngẫu nhiên
             const char = String.fromCharCode(65 + Math.floor(Math.random() * 26));
             const num = Math.floor(1000 + Math.random() * 9000);
-            const orderCode = char + num;
+            const orderCode = "#" + char + num;
 
             const time = new Date().toLocaleString('vi-VN');
             const total = cart.reduce((s, i) => s + (i.finalPrice * i.quantity), 0);
             const items = cart.map(i => `${i.quantity}x ${i.name} (${i.selectedSize})`).join(' + ');
 
-            dbC.ref('orders').push({orderCode, customerName: name, customerPhone: phone, note, time, total, items, status: 'pending'}).then(() => {
+            const noteToSave = note ? note : "Không có";
+
+            dbC.ref('orders').push({orderCode: orderCode.substring(1), customerName: name, customerPhone: phone, note: noteToSave, time, total, items, status: 'pending'}).then(() => {
+                
+                // Cập nhật thông tin lên Hóa Đơn
                 document.getElementById('bCode').innerText = orderCode;
                 document.getElementById('bName').innerText = name;
                 document.getElementById('billPhoneReal').innerText = phone;
                 document.getElementById('bTime').innerText = time;
                 document.getElementById('bTotal').innerText = total.toLocaleString() + " đ";
-                document.getElementById('bItems').innerHTML = cart.map(i => `<div class="d-flex justify-content-between mb-1"><span>${i.quantity}x ${i.name} (${i.selectedSize})</span><span>${(i.finalPrice * i.quantity).toLocaleString()}đ</span></div>`).join('');
+                
+                // Hiển thị Ghi chú lên bill nếu có
+                if(noteToSave !== "Không có") {
+                    document.getElementById('bNoteContainer').style.display = 'block';
+                    document.getElementById('bNote').innerText = noteToSave;
+                } else {
+                    document.getElementById('bNoteContainer').style.display = 'none';
+                }
+                
+                // Cập nhật danh sách món ăn
+                document.getElementById('bItems').innerHTML = cart.map(i => `
+                    <div class="d-flex align-items-center py-2" style="border-bottom: 2px dashed #eee;">
+                        <img src="${i.img}" style="width: 55px; height: 55px; object-fit: cover; border-radius: 8px; margin-right: 15px;">
+                        <div class="flex-grow-1">
+                            <div class="fw-bold text-dark" style="font-size: 0.95rem;">${i.name} ${i.selectedSize === 'L' ? '(L)' : ''}</div>
+                            <div class="text-muted small fw-bold">x${i.quantity}</div>
+                        </div>
+                        <div class="fw-bold" style="color: var(--primary); font-size: 1.05rem;">${(i.finalPrice * i.quantity).toLocaleString()}đ</div>
+                    </div>
+                `).join('');
                 
                 new bootstrap.Modal(document.getElementById('billModal')).show();
 
-                // Reset giỏ hàng và form
                 cart = []; localStorage.removeItem("pro_cart");
                 document.getElementById('cusName').value = ""; document.getElementById('cusPhone').value = ""; document.getElementById('cusNote').value = "";
                 updateCart(); toggleCart();
             });
         }
-
-        // 4. TRA CỨU ĐƠN HÀNG
-        function findMyOrder() {
-            const code = document.getElementById('searchOrderCode').value.trim().toUpperCase();
+            // Tìm Đơn Hàng
+     function findMyOrder() {
+            let code = document.getElementById('TrackingcodeInput').value.trim().toUpperCase();
+            code = code.replace('#', ''); 
+            
             if(!code) return;
+            
             dbC.ref('orders').orderByChild('orderCode').equalTo(code).once('value', snap => {
                 const data = snap.val();
-                const ords = data ? Object.values(data) : [];
-                document.getElementById('orderResult').innerHTML = ords.map(o => `
-                    <div class="card p-3 shadow-sm border-0 bg-light mb-2">
+                trackedOrdersList = data ? Object.values(data) : []; // Lưu dữ liệu vào đây
+                
+                document.getElementById('orderResult').innerHTML = trackedOrdersList.map(o => {
+                    let statusClass = o.status === 'done' ? 'bg-success' : (o.status === 'cancelled' ? 'bg-danger' : 'bg-warning text-dark');
+                    let statusText = o.status === 'done' ? 'Đã pha xong' : (o.status === 'cancelled' ? 'Đã hủy' : 'Đang pha chế');
+                    return `
+                    <div class="card bg-white border-0 mb-3 p-3 shadow-sm rounded-4">
                         <div class="d-flex justify-content-between align-items-center mb-2 border-bottom pb-2">
-                            <b class="text-success fs-5">${o.orderCode}</b>
-                            <span class="badge ${o.status==='done'?'bg-success':'bg-warning text-dark'} px-2 py-1">${o.status==='done'?'Đã xong':'Đang pha'}</span>
+                            <b class="fs-5" style="color: var(--primary);">#${o.orderCode}</b>
+                            <span class="badge rounded-pill px-3 py-2 ${statusClass}">${statusText}</span>
                         </div>
-                        <div class="small mb-1 text-muted"><b>Món:</b> ${o.items}</div>
-                        <div class="d-flex justify-content-between mt-2">
-                            <span class="small text-muted">${o.time.split(' ')[1]}</span>
-                            <span class="fw-bold text-danger">${(parseInt(o.total)||0).toLocaleString()}đ</span>
+                        <div class="text-muted small lh-lg mb-1"><b>Món:</b> ${o.items}</div>
+                        <div class="d-flex justify-content-between align-items-center mt-2 mb-3">
+                            <span class="small text-muted"><i class="far fa-clock me-1"></i> ${o.time}</span>
+                            <span class="fw-bold fs-5" style="color: var(--dark-text);">${(parseInt(o.total)||0).toLocaleString()}đ</span>
                         </div>
-                    </div>`).join('') || "<p class='text-center text-danger mt-3 fw-bold'>Không tìm thấy đơn hàng mã này!</p>";
+                        <!-- NÚT XEM LẠI BILL ĐƯỢC THÊM VÀO ĐÂY -->
+                        <button class="btn btn-outline-primary btn-sm w-100 rounded-pill fw-bold" onclick="viewTrackedBill('${o.orderCode}')">
+                            <i class="fas fa-file-invoice me-1"></i> Xem lại Hóa Đơn
+                        </button>
+                    </div>`;
+                }).join('') || `<div class="text-center text-muted mt-4"><i class="fas fa-search fs-1 mb-2 opacity-25"></i><p>Không tìm thấy đơn hàng mã <b>${code}</b>!</p></div>`;
             });
         }
+        function viewTrackedBill(code) {
+            const o = trackedOrdersList.find(x => x.orderCode === code);
+            if(!o) return;
 
-        function openHistoryModal() { new bootstrap.Modal(document.getElementById('historyModal')).show(); }
+            // Tạm thời ẩn bảng lịch sử để xem Bill cho rõ
+            bootstrap.Modal.getInstance(document.getElementById('historyModal')).hide();
+
+            document.getElementById('bCode').innerText = "#" + o.orderCode;
+            document.getElementById('bName').innerText = o.customerName;
+            document.getElementById('billPhoneReal').innerText = o.customerPhone || '---';
+            document.getElementById('bTime').innerText = o.time;
+            document.getElementById('bTotal').innerText = (parseInt(o.total)||0).toLocaleString() + " đ";
+            
+            if(o.note && o.note !== "Không có") {
+                document.getElementById('bNoteContainer').style.display = 'block';
+                document.getElementById('bNote').innerText = o.note;
+            } else {
+                document.getElementById('bNoteContainer').style.display = 'none';
+            }
+            
+            // Xử lý thông minh: Ghép tên món ăn để tìm lại hình ảnh trong Menu
+            document.getElementById('bItems').innerHTML = o.items.split(" + ").map(itemStr => {
+                let parts = itemStr.split("x ");
+                let qty = parts[0] ? parts[0] : "1";
+                let nameWithSize = parts[1] || itemStr;
+                
+                // Lọc bỏ ký hiệu (M), (L) để tìm ảnh gốc
+                let cleanName = nameWithSize.replace(' (M)', '').replace(' (L)', '').trim();
+                let matchedDrink = drinks.find(d => d.name === cleanName);
+                
+                let imgHTML = matchedDrink 
+                    ? `<img src="${matchedDrink.img}" style="width: 55px; height: 55px; object-fit: cover; border-radius: 8px; margin-right: 15px;">` 
+                    : `<div style="width: 55px; height: 55px; background: var(--bg-light); border-radius: 8px; margin-right: 15px; display: flex; align-items: center; justify-content: center; color: var(--primary);"><i class="fas fa-coffee fs-4"></i></div>`;
+                
+                return `
+                <div class="d-flex align-items-center py-2" style="border-bottom: 2px dashed #eee;">
+                    ${imgHTML}
+                    <div class="flex-grow-1">
+                        <div class="fw-bold text-dark" style="font-size: 0.95rem;">${nameWithSize}</div>
+                        <div class="text-muted small fw-bold">x${qty}</div>
+                    </div>
+                </div>`;
+            }).join('');
+            
+            new bootstrap.Modal(document.getElementById('billModal')).show();
+        }
+        // 5. XÓA BẢNG KẾT QUẢ KHI Ô NHẬP LIỆU BỊ XÓA TRẮNG
+        function clearTracking() {
+            // Lấy dữ liệu và ID chuẩn của input sếp đang dùng
+            const codeInput = document.getElementById('TrackingcodeInput').value.trim();
+            if (codeInput === '') {
+                // Xóa nội dung hiển thị trong div orderResult
+                document.getElementById('orderResult').innerHTML = ''; 
+            }
+        }
+
+      function openHistoryModal() { 
+            // 1. Xóa sạch chữ trong ô nhập liệu
+            document.getElementById('TrackingcodeInput').value = ''; 
+            
+            // 2. Xóa sạch kết quả tìm kiếm của lần trước đó
+            document.getElementById('orderResult').innerHTML = ''; 
+
+            // 3. Mở Modal tra cứu
+            new bootstrap.Modal(document.getElementById('historyModal')).show(); 
+        }
         function closeBill() { bootstrap.Modal.getInstance(document.getElementById('billModal')).hide(); }
         function toggleCart() { document.getElementById('cart-sidebar').classList.toggle('active'); document.getElementById('cart-overlay').classList.toggle('active'); }
+        
         window.onload = updateCart;
     </script>
 </body>
